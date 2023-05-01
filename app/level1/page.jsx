@@ -9,7 +9,7 @@ import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { Result } from "postcss";
 import Head from "next/head";
 
-function level1() {
+function Level1() {
   const [questionNo, setQuestionNo] = useState(0);
   const [result, setResult] = useState("");
   const [showVideo, setShowVideo] = useState(false);
@@ -336,4 +336,4 @@ function level1() {
   );
 }
 
-export default level1;
+export default Level1;
