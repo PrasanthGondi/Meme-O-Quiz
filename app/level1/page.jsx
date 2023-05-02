@@ -331,105 +331,90 @@ function Level1() {
       <div className="flex justify-center invisible">
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/1.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/wrongs/0.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/2.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/wrongs/1.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/3.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/wrongs/2.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/4.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/wrongs/3.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/5.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/wrongs/end.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/6.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/7.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/8.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/9.mp4"
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          playing
           url="level1/rights/end.mp4"
           width="1px"
           height="1px"
