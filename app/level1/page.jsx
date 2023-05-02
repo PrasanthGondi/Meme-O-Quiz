@@ -136,7 +136,7 @@ function Level1() {
           setShowVideo(false);
           setHideQuiz(false);
           setQuestionNo((questionNo) => questionNo + 1);
-        }, 4000);
+        }, 4200);
       }
     } else {
       setResult("Incorrect Answer");
@@ -149,7 +149,7 @@ function Level1() {
         setShowVideo(false);
         setHideQuiz(false);
         setQuestionNo((questionNo) => questionNo + 1);
-      }, 5000);
+      }, 5300);
     }
   };
 
