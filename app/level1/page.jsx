@@ -158,7 +158,7 @@ function Level1() {
   //   };
 
   return (
-    <div>
+    <div className="h-screen">
       <div className="p-10 sm:p-32 lg:p-52 xl:p-5 2xl:p-20 h-screen">
         <Link href="/" replace>
           <Button

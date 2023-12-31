@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="bg-cover flex flex-col justify-between text-center items-center mt-20 w-screen">
+    <div className="bg-cover flex flex-col justify-between text-center items-center mt-20 w-screen h-screen">
       <div className="bg-white border-[#050A2F] flex flex-col justify-center text-center items-center p-10 rounded-3xl border-dashed pt-16 pb-16">
         <Image
           src="/1.png"
