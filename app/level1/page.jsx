@@ -172,7 +172,7 @@ function Level1() {
         </Link>
         <div>
           <Modal
-            title="Rules - 📜"
+            title="Rules 📜"
             open={isModalOpen}
             onOk={handleOk}
             onCancel={handleOk}
