@@ -17,7 +17,21 @@ const Level1 = () => {
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const [url, setUrl] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const [quality, setQuality] = useState("480p");
+  let viewportWidth = window.innerWidth;
+
+  // Set the initial quality based on the viewport width
+  let initialQuality;
+  if (viewportWidth <= 480) {
+    // Small mobile devices
+    initialQuality = "360p";
+  } else if (viewportWidth <= 1000) {
+    // Tablets and small laptops
+    initialQuality = "480p";
+  } else {
+    // Large laptops/Desktops
+    initialQuality = "720p";
+  }
+  const [quality, setQuality] = useState(initialQuality);
 
   <Head>
     <meta name="viewport" content="viewport-fit=cover" />
@@ -67,23 +81,23 @@ const Level1 = () => {
     }
   }, []);
 
-  useEffect(() => {
-    // Get the viewport width
-    let viewportWidth = window.innerWidth;
+  // useEffect(() => {
+  //   // Get the viewport width
+  //   let viewportWidth = window.innerWidth;
 
-    // Set the quality based on the viewport width
-    if (viewportWidth <= 480) {
-      // Small mobile devices
-      setQuality("360p");
-    } else if (viewportWidth <= 481) {
-      // Tablets
-      setQuality("480p");
-    } else if (viewportWidth <= 1200) {
-      // Laptops/Desktops
-      setQuality("720p");
-    }
-    console.log("Viewport Width: ", viewportWidth);
-  }, []);
+  //   // Set the quality based on the viewport width
+  //   if (viewportWidth <= 480) {
+  //     // Small mobile devices
+  //     setQuality("360p");
+  //   } else if (viewportWidth <= 481) {
+  //     // Tablets
+  //     setQuality("480p");
+  //   } else if (viewportWidth <= 1200) {
+  //     // Laptops/Desktops
+  //     setQuality("720p");
+  //   }
+  //   console.log("Viewport Width: ", viewportWidth);
+  // }, []);
 
   //   const [duration, setDuration] = useState(4);
   //   console.log(questionNo, rightAnswers, wrongAnswers, url);
@@ -173,6 +187,8 @@ const Level1 = () => {
     },
   ];
 
+  console.log("quality: ", quality, initialQuality);
+
   const buttonClick = async (e) => {
     setShowVideo(true);
     // setTimeout(() => setHideQuiz((hideQuiz) => !hideQuiz), 300);
@@ -218,6 +234,98 @@ const Level1 = () => {
   return (
     <div className="h-screen">
       <div className="p-10 sm:p-32 lg:p-52 xl:p-5 2xl:p-20 h-screen">
+        <div className="flex justify-center invisible">
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/1.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/wrongs/${quality}/0.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/2.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/wrongs/${quality}/1.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/3.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/wrongs/${quality}/2.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/4.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/wrongs/${quality}/3.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/5.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/wrongs/${quality}/end.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/6.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/7.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/8.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/9.mp4`}
+            width="1px"
+            height="1px"
+          />
+          <ReactPlayer
+            className="react-player"
+            url={`level1/rights/${quality}/end.mp4`}
+            width="1px"
+            height="1px"
+          />
+        </div>
         <Link href="/" replace>
           <Button
             type="default"
@@ -386,7 +494,7 @@ const Level1 = () => {
           </div>
         )}
       </div>
-      <div className="flex justify-center invisible">
+      {/* <div className="flex justify-center invisible">
         <ReactPlayer
           className="react-player"
           url={`level1/rights/${quality}/1.mp4`}
@@ -477,7 +585,7 @@ const Level1 = () => {
           width="1px"
           height="1px"
         />
-      </div>
+      </div> */}
       {/* <div className="flex flex-col justify-center items-center font-medium text-xl text-center invisible sm:visible pt-32">
         <h1>This is a Mobile-First Game</h1>
         <h1>Coming Soon to Other Devices</h1>
