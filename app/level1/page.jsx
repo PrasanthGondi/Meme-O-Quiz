@@ -17,7 +17,7 @@ const Level1 = () => {
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const [url, setUrl] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const [quality, setQuality] = useState("480p");
+  const [quality, setQuality] = useState("360p");
 
   <Head>
     <meta name="viewport" content="viewport-fit=cover" />
