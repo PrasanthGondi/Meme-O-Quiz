@@ -1,15 +1,14 @@
 "use client";
 import Link from "next/link";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import ReactPlayer from "react-player";
 import { Modal, Button } from "antd";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
-import { Result } from "postcss";
 import Head from "next/head";
 
-function Level1() {
+const Level1 = () => {
   const [questionNo, setQuestionNo] = useState(0);
   const [result, setResult] = useState("");
   const [showVideo, setShowVideo] = useState(false);
@@ -18,6 +17,7 @@ function Level1() {
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const [url, setUrl] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const [quality, setQuality] = useState("720p");
 
   <Head>
     <meta name="viewport" content="viewport-fit=cover" />
@@ -26,6 +26,46 @@ function Level1() {
   const handleOk = () => {
     setIsModalOpen(false);
   };
+
+  useEffect(() => {
+    if ("connection" in navigator) {
+      let connection =
+        navigator.connection ||
+        navigator.mozConnection ||
+        navigator.webkitConnection;
+      let type = connection.effectiveType;
+      console.log("Network Detected: ", type);
+
+      // Get the viewport width
+      let viewportWidth = window.innerWidth;
+
+      // Set the quality based on the connection type and viewport width
+      if (viewportWidth <= 600) {
+        // Mobile devices
+        if (type === "4g" || type === "5g") {
+          setQuality("480p");
+        } else {
+          setQuality("360p");
+        }
+      } else if (viewportWidth <= 900) {
+        // Tablets
+        if (type === "4g" || type === "5g") {
+          setQuality("720p");
+        } else {
+          setQuality("480p");
+        }
+      } else {
+        // Laptops/Desktops
+        if (type === "4g" || type === "5g") {
+          setQuality("720p");
+        } else if (type === "3g") {
+          setQuality("480p");
+        } else {
+          setQuality("360p");
+        }
+      }
+    }
+  }, []);
 
   //   const [duration, setDuration] = useState(4);
   //   console.log(questionNo, rightAnswers, wrongAnswers, url);
@@ -131,7 +171,7 @@ function Level1() {
       if (questionNo >= 9) {
         setQuestionNo((questionNo) => questionNo + 1);
       } else {
-        setUrl(`level1/rights/${questionNo + 1}.mp4`);
+        setUrl(`level1/rights/${quality}/${questionNo + 1}.mp4`);
         setTimeout(() => {
           setShowVideo(false);
           setHideQuiz(false);
@@ -144,7 +184,7 @@ function Level1() {
         ...wrongAnswers,
         e.target.textContent,
       ]);
-      setUrl(`level1/wrongs/${wrongAnswers.length}.mp4`);
+      setUrl(`level1/wrongs/${quality}/${wrongAnswers.length}.mp4`);
       setTimeout(() => {
         setShowVideo(false);
         setHideQuiz(false);
@@ -305,8 +345,8 @@ function Level1() {
                   playing
                   url={
                     wrongAnswers.length > 4
-                      ? "level1/wrongs/end.mp4"
-                      : "level1/rights/end.mp4"
+                      ? `level1/wrongs/${quality}/end.mp4`
+                      : `level1/rights/${quality}/end.mp4`
                   }
                   width="100%"
                   height="100%"
@@ -331,91 +371,91 @@ function Level1() {
       <div className="flex justify-center invisible">
         <ReactPlayer
           className="react-player"
-          url="level1/rights/1.mp4"
+          url={`level1/rights/${quality}/1.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/wrongs/0.mp4"
+          url={`level1/wrongs/${quality}/0.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/rights/2.mp4"
+          url={`level1/rights/${quality}/2.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/wrongs/1.mp4"
+          url={`level1/wrongs/${quality}/1.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/rights/3.mp4"
+          url={`level1/rights/${quality}/3.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/wrongs/2.mp4"
+          url={`level1/wrongs/${quality}/2.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/rights/4.mp4"
+          url={`level1/rights/${quality}/4.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/wrongs/3.mp4"
+          url={`level1/wrongs/${quality}/3.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/rights/5.mp4"
+          url={`level1/rights/${quality}/5.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/wrongs/end.mp4"
+          url={`level1/wrongs/${quality}/end.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/rights/6.mp4"
+          url={`level1/rights/${quality}/6.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/rights/7.mp4"
+          url={`level1/rights/${quality}/7.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/rights/8.mp4"
+          url={`level1/rights/${quality}/8.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/rights/9.mp4"
+          url={`level1/rights/${quality}/9.mp4`}
           width="1px"
           height="1px"
         />
         <ReactPlayer
           className="react-player"
-          url="level1/rights/end.mp4"
+          url={`level1/rights/${quality}/end.mp4`}
           width="1px"
           height="1px"
         />
@@ -426,6 +466,6 @@ function Level1() {
       </div> */}
     </div>
   );
-}
+};
 
 export default Level1;
