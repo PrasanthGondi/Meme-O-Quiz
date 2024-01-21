@@ -17,7 +17,7 @@ const Level1 = () => {
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const [url, setUrl] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const [quality, setQuality] = useState("720p");
+  const [quality, setQuality] = useState("480p");
 
   <Head>
     <meta name="viewport" content="viewport-fit=cover" />
@@ -65,6 +65,24 @@ const Level1 = () => {
         }
       }
     }
+  }, []);
+
+  useEffect(() => {
+    // Get the viewport width
+    let viewportWidth = window.innerWidth;
+
+    // Set the quality based on the viewport width
+    if (viewportWidth <= 480) {
+      // Small mobile devices
+      setQuality("360p");
+    } else if (viewportWidth <= 481) {
+      // Tablets
+      setQuality("480p");
+    } else if (viewportWidth <= 1200) {
+      // Laptops/Desktops
+      setQuality("720p");
+    }
+    console.log("Viewport Width: ", viewportWidth);
   }, []);
 
   //   const [duration, setDuration] = useState(4);
