@@ -187,8 +187,6 @@ const Level1 = () => {
     },
   ];
 
-  console.log("quality: ", quality, initialQuality);
-
   const buttonClick = async (e) => {
     setShowVideo(true);
     // setTimeout(() => setHideQuiz((hideQuiz) => !hideQuiz), 300);
@@ -234,98 +232,6 @@ const Level1 = () => {
   return (
     <div className="h-screen">
       <div className="p-10 sm:p-32 lg:p-52 xl:p-5 2xl:p-20 h-screen">
-        <div className="flex justify-center invisible">
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/1.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/wrongs/${quality}/0.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/2.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/wrongs/${quality}/1.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/3.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/wrongs/${quality}/2.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/4.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/wrongs/${quality}/3.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/5.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/wrongs/${quality}/end.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/6.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/7.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/8.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/9.mp4`}
-            width="1px"
-            height="1px"
-          />
-          <ReactPlayer
-            className="react-player"
-            url={`level1/rights/${quality}/end.mp4`}
-            width="1px"
-            height="1px"
-          />
-        </div>
         <Link href="/" replace>
           <Button
             type="default"
@@ -494,7 +400,7 @@ const Level1 = () => {
           </div>
         )}
       </div>
-      {/* <div className="flex justify-center invisible">
+      <div className="flex justify-center invisible">
         <ReactPlayer
           className="react-player"
           url={`level1/rights/${quality}/1.mp4`}
@@ -585,7 +491,7 @@ const Level1 = () => {
           width="1px"
           height="1px"
         />
-      </div> */}
+      </div>
       {/* <div className="flex flex-col justify-center items-center font-medium text-xl text-center invisible sm:visible pt-32">
         <h1>This is a Mobile-First Game</h1>
         <h1>Coming Soon to Other Devices</h1>
