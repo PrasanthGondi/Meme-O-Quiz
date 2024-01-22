@@ -19,15 +19,8 @@ const Level1 = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [quality, setQuality] = useState("360p");
 
-  <Head>
-    <meta name="viewport" content="viewport-fit=cover" />
-  </Head>;
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
   useEffect(() => {
+    let viewportWidth = window.innerWidth;
     if ("connection" in navigator) {
       let connection =
         navigator.connection ||
@@ -37,7 +30,6 @@ const Level1 = () => {
       console.log("Network Detected: ", type);
 
       // Get the viewport width
-      let viewportWidth = window.innerWidth;
 
       // Set the quality based on the connection type and viewport width
       if (viewportWidth <= 600) {
@@ -64,8 +56,40 @@ const Level1 = () => {
           setQuality("360p");
         }
       }
+    } else {
+      console.log("Network Not Detected");
+      if (viewportWidth <= 600) {
+        setQuality("360p");
+      } else if (viewportWidth <= 1000) {
+        setQuality("480p");
+      } else {
+        setQuality("720p");
+      }
     }
   }, []);
+
+  <Head>
+    <meta name="viewport" content="viewport-fit=cover" />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/1.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/wrongs/${quality}/1.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/2.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/wrongs/${quality}/2.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/3.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/wrongs/${quality}/3.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/4.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/wrongs/${quality}/4.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/5.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/6.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/7.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/8.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/9.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/rights/${quality}/end.mp4`} />
+    <link rel="prefetch" as="video" href={`level1/wrongs/${quality}/end.mp4`} />
+  </Head>;
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
 
   const questions = [
     {
@@ -365,7 +389,7 @@ const Level1 = () => {
           </div>
         )}
       </div>
-      <div className="flex justify-center invisible">
+      {/* <div className="flex justify-center invisible">
         <ReactPlayer
           className="react-player"
           url={`level1/rights/${quality}/1.mp4`}
@@ -456,7 +480,7 @@ const Level1 = () => {
           width="1px"
           height="1px"
         />
-      </div>
+      </div> */}
       {/* <div className="flex flex-col justify-center items-center font-medium text-xl text-center invisible sm:visible pt-32">
         <h1>This is a Mobile-First Game</h1>
         <h1>Coming Soon to Other Devices</h1>
