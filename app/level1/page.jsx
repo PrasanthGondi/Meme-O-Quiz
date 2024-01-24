@@ -70,22 +70,115 @@ const Level1 = () => {
 
   <Head>
     <meta name="viewport" content="viewport-fit=cover" />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/1.mp4`} />
-    <link rel="preload" as="video" href={`level1/wrongs/${quality}/1.mp4`} />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/2.mp4`} />
-    <link rel="preload" as="video" href={`level1/wrongs/${quality}/2.mp4`} />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/3.mp4`} />
-    <link rel="preload" as="video" href={`level1/wrongs/${quality}/3.mp4`} />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/4.mp4`} />
-    <link rel="preload" as="video" href={`level1/wrongs/${quality}/4.mp4`} />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/5.mp4`} />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/6.mp4`} />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/7.mp4`} />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/8.mp4`} />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/9.mp4`} />
-    <link rel="preload" as="video" href={`level1/rights/${quality}/end.mp4`} />
-    <link rel="preload" as="video" href={`level1/wrongs/${quality}/end.mp4`} />
+    {/* <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/1.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/wrongs/${quality}/1.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/2.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/wrongs/${quality}/2.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/3.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/wrongs/${quality}/3.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/4.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/wrongs/${quality}/4.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/5.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/6.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/7.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/8.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/9.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/rights/${quality}/end.mp4`}
+      type="video/mp4"
+    />
+    <link
+      rel="preload"
+      as="video"
+      href={`level1/wrongs/${quality}/end.mp4`}
+      type="video/mp4"
+    /> */}
   </Head>;
+
+  const videoUrls = [
+    `level1/rights/${quality}/1.mp4`,
+    `level1/wrongs/${quality}/1.mp4`,
+    `level1/rights/${quality}/2.mp4`,
+    `level1/wrongs/${quality}/2.mp4`,
+    `level1/rights/${quality}/3.mp4`,
+    `level1/wrongs/${quality}/3.mp4`,
+    `level1/rights/${quality}/4.mp4`,
+    `level1/wrongs/${quality}/4.mp4`,
+    `level1/rights/${quality}/5.mp4`,
+    `level1/rights/${quality}/6.mp4`,
+    `level1/rights/${quality}/7.mp4`,
+    `level1/rights/${quality}/8.mp4`,
+    `level1/rights/${quality}/9.mp4`,
+    `level1/rights/${quality}/end.mp4`,
+    `level1/wrongs/${quality}/end.mp4`,
+  ];
 
   const handleOk = () => {
     setIsModalOpen(false);
@@ -389,6 +482,16 @@ const Level1 = () => {
           </div>
         )}
       </div>
+      <>
+        {videoUrls.map((url, index) => (
+          <video
+            key={index}
+            src={url}
+            preload="auto"
+            style={{ display: "none" }}
+          />
+        ))}
+      </>
       {/* <div className="flex justify-center invisible">
         <ReactPlayer
           className="react-player"
